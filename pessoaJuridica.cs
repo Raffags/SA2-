@@ -7,6 +7,7 @@ namespace SA2
 {
     public class pessoaJuridica : Pessoa
     {
+        public float Faturamento {get; set ;}
         public string? CNPJ { get; set; }
         public string? razaoSocial { get; set; }
         public override float PagarImposto(float rendimento)
