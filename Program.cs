@@ -115,11 +115,21 @@
 
                         break;
                     case "2":
-                        foreach (var item in listaPf)
-                        {
-                            Console.WriteLine($"O indivíduo: {item.nome},de cpf :{item.CPF},recebe :  {item.salario} , e paga de imposto :{item.PagarImposto(item.salario)}");
-                        }
+                        //foreach (var item in listaPf)
+                       // {
+                        //    Console.WriteLine($"O indivíduo: {item.nome},de cpf :{item.CPF},recebe :  {item.salario} , e paga de imposto :{item.PagarImposto(item.salario)}");
+                       // } 
+                    Console.WriteLine("Digite o nome da pessoa que quer consultar");
+                        string pessoa = Console.ReadLine();
 
+                     using (StreamReader sr = new StreamReader($"{pessoa}.txt")){
+                        string linha;
+                        while ((linha = sr.ReadLine()) != null){
+                            Console.WriteLine($"{linha}");
+                        }
+                     }
+                        Console.WriteLine($"Aperte 'Enter' para continuar...");
+                        Console.ReadLine();
                         break;
                     case "3":
                         Console.WriteLine("digite o cpf da pessoa que deseja remover : ");
