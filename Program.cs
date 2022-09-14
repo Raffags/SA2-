@@ -57,32 +57,32 @@
                 switch (opção)
                 {
                     case "1":
-                        Endereco endPf1 = new Endereco();
-                        Console.WriteLine("Informe seu logradouro :");
-                        endPf1.logradouro = Console.ReadLine();
+                        //      Endereco endPf1 = new Endereco();
+                        //       Console.WriteLine("Informe seu logradouro :");
+                        //       endPf1.logradouro = Console.ReadLine();
 
-                        Console.WriteLine("Informe o numero da residencia : ");
-                        endPf1.numero = int.Parse(Console.ReadLine());
+                        //       Console.WriteLine("Informe o numero da residencia : ");
+                        //       endPf1.numero = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("informe seu complemento caso exista,caso não, pressione enter.");
-                        endPf1.complemento = Console.ReadLine();
+                        //       Console.WriteLine("informe seu complemento caso exista,caso não, pressione enter.");
+                        //      endPf1.complemento = Console.ReadLine();
 
-                        Console.WriteLine("este endereço é comercial ? 'S' para sim , 'N' para não. ");
+                        //       Console.WriteLine("este endereço é comercial ? 'S' para sim , 'N' para não. ");
 
-                        string endComercial = Console.ReadLine().ToUpper();
-                        if (endComercial == "S")
-                        {
-                            endPf1.enderecoComercial = true;
-                        }
-                        else
-                        {
-                            endPf1.enderecoComercial = false;
-                        }
+                        //       string endComercial = Console.ReadLine().ToUpper();
+                        //       if (endComercial == "S")
+                        //       {
+                        //           endPf1.enderecoComercial = true;
+                        //       }
+                        //        else
+                        //        {
+                        //  endPf1.enderecoComercial = false;
+                        //        }
 
 
 
                         pessoaFisica pf = new pessoaFisica();
-                        pf.endereco = endPf1;
+                        //     pf.endereco = endPf1;
 
 
                         Console.WriteLine("Informe seu nome : ");
@@ -91,23 +91,27 @@
                         Console.WriteLine("Informe seu CPF (SOMENTE NUMEROS)");
                         pf.CPF = Console.ReadLine();
 
-                        Console.WriteLine("Informe seu salário  : ");
-                        pf.salario = float.Parse(Console.ReadLine());
+                        //    Console.WriteLine("Informe seu salário  : ");
+                        //   pf.salario = float.Parse(Console.ReadLine());
 
-                        Console.WriteLine("Informe data de nascimento no formato : AA/MM/DD");
-                        pf.dataNascimento = DateTime.Parse(Console.ReadLine());
-                        bool idadevalida = pf.ValidarDataNascimento(pf.dataNascimento);
-                        if (idadevalida == true)
+                        //    Console.WriteLine("Informe data de nascimento no formato : AA/MM/DD");
+                        //     pf.dataNascimento = DateTime.Parse(Console.ReadLine());
+                        //     bool idadevalida = pf.ValidarDataNascimento(pf.dataNascimento);
+                        //    if (idadevalida == true)
+                        //    {
+
+
+                        //     Console.WriteLine("cadastro aprovado ");
+                        //        listaPf.Add(pf);
+                        //       Console.WriteLine("imposto a pagar : ");
+                        //        Console.WriteLine(pf.PagarImposto(pf.salario));
+                        //         ;
+                        //   }
+                          using (StreamWriter sw = new StreamWriter($"{pf.nome}.txt"))
                         {
-
-
-                            Console.WriteLine("cadastro aprovado ");
-                            listaPf.Add(pf);
-                            Console.WriteLine("imposto a pagar : ");
-                            Console.WriteLine(pf.PagarImposto(pf.salario));
-                            ;
+                            sw.Write($"O nome do usuario é {pf.nome}, o cpf dele é {pf.CPF} e só!");
                         }
-
+                            
 
                         break;
                     case "2":
@@ -192,7 +196,7 @@
                     case "5":
                         foreach (var item in listapj)
                         {
-                            Console.WriteLine($" a empresa : {item.nome} de razão social :{item.razaoSocial} {item.CNPJ} {item.Faturamento},  , imposto a pagar : {item.PagarImposto(item.Faturamento)} ");
+                            Console.WriteLine($" a empresa : {item.endereco.logradouro} {item.nome} de razão social :{item.razaoSocial} {item.CNPJ} {item.Faturamento},  , imposto a pagar : {item.PagarImposto(item.Faturamento)} ");
                         }
                         break;
                     case "6":
@@ -205,7 +209,8 @@
                             Console.WriteLine("Empresa removida.");
 
                         }
-                        else {
+                        else
+                        {
                             Console.WriteLine("CNPJ não encontrado");
                         }
 
